@@ -1,0 +1,17 @@
+{
+  "name": "crimelens-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-Grade Forensic Intelligence & Education Platform",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'Static build ready'"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
