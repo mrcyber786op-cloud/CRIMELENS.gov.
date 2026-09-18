@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRIMELENS — Real Evidence. Real Stories.</title>
+    <meta name="description" content="Production-Grade Forensic Intelligence & Education Platform">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        crimson: {
+                            500: '#E50914',
+                            600: '#D00000',
+                            700: '#9B0000',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-card {
+            background: rgba(18, 18, 20, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .pulse-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 3s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body class="bg-black text-zinc-100 min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            
+            <!-- LOGO -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative">
+                    <span class="text-2xl sm:text-3xl font-black tracking-tight text-white">
+                        CRIME<span class="text-red-600 group-hover:text-red-500 transition-colors">LENS</span>
+                    </span>
+                    <svg class="w-full h-3 text-red-600 mt-0.5" viewBox="0 0 200 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M0,10 L40,10 L50,2 L60,18 L70,10 L200,10" class="pulse-line" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- NAVIGATION LINKS -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
+                <a href="#courses" class="hover:text-red-500 transition-colors">Courses</a>
+                <a href="#webinars" class="hover:text-red-500 transition-colors">Webinars</a>
+                <a href="#toolkit" class="hover:text-red-500 transition-colors">Forensic Tools</a>
+                <a href="#about" class="hover:text-red-500 transition-colors">About Us</a>
+                <a href="#contact" class="hover:text-red-500 transition-colors">Contact</a>
+            </nav>
+
+            <!-- AUTH BUTTONS -->
+            <div class="flex items-center gap-3">
+                <button onclick="openModal('authModal')" class="px-4 py-2 text-sm font-semibold text-zinc-300 hover:text-white transition-colors">
+                    Sign In
+                </button>
+                <button onclick="openModal('authModal')" class="px-5 py-2.5 text-sm font-bold bg-red-600 hover:bg-red-700 text-white rounded-lg shadow-lg shadow-red-600/30 transition-all hover:scale-[1.02]">
+                    Get Started Free
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-24 px-4 overflow-hidden border-b border-zinc-800/80">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-950/40 border border-red-800/40 text-red-400 text-xs font-semibold uppercase tracking-wider mb-8">
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                Next-Gen Forensic Science Education
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                REAL EVIDENCE. <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-600 to-rose-700">REAL STORIES.</span>
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 font-normal">
+                Master digital forensics, cyber crime investigation, DNA profiling, and ballistics through practical simulation and expert-led certifications.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#courses" class="w-full sm:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl shadow-xl shadow-red-600/20 transition-all text-center">
+                    Explore Courses
+                </a>
+                <button onclick="openModal('toolkitModal')" class="w-full sm:w-auto px-8 py-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 font-semibold rounded-xl transition-all">
+                    <i class="fa-solid fa-microscope mr-2 text-red-500"></i> Open Forensic Tools
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES SECTION -->
+    <section id="courses" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-2">Featured Programs</h2>
+                <p class="text-zinc-400 text-sm">Industry-standard forensic training with verifiable certificates.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Course Card 1 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-red-600/50 transition-all">
+                <div>
+                    <div class="h-44 rounded-xl bg-zinc-900 mb-6 flex items-center justify-center text-red-600 text-5xl border border-zinc-800">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <span class="text-xs font-bold text-red-500 tracking-wider uppercase">Cyber Security</span>
+                    <h3 class="text-xl font-bold text-white mt-2 mb-3">Digital Forensics & Incident Response</h3>
+                    <p class="text-zinc-400 text-sm mb-6">Learn memory analysis, network triage, and mobile forensics step-by-step.</p>
+                </div>
+                <button onclick="openModal('authModal')" class="w-full py-3 rounded-lg border border-red-600/40 text-red-400 hover:bg-red-600 hover:text-white font-semibold transition-all">
+                    Enroll Now
+                </button>
+            </div>
+
+            <!-- Course Card 2 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-red-600/50 transition-all">
+                <div>
+                    <div class="h-44 rounded-xl bg-zinc-900 mb-6 flex items-center justify-center text-red-600 text-5xl border border-zinc-800">
+                        <i class="fa-solid fa-dna"></i>
+                    </div>
+                    <span class="text-xs font-bold text-red-500 tracking-wider uppercase">Biology</span>
+                    <h3 class="text-xl font-bold text-white mt-2 mb-3">Advanced Forensic DNA Profiling</h3>
+                    <p class="text-zinc-400 text-sm mb-6">Comprehensive training on STR analysis, bloodstain pattern analysis, and gene databases.</p>
+                </div>
+                <button onclick="openModal('authModal')" class="w-full py-3 rounded-lg border border-red-600/40 text-red-400 hover:bg-red-600 hover:text-white font-semibold transition-all">
+                    Enroll Now
+                </button>
+            </div>
+
+            <!-- Course Card 3 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-red-600/50 transition-all">
+                <div>
+                    <div class="h-44 rounded-xl bg-zinc-900 mb-6 flex items-center justify-center text-red-600 text-5xl border border-zinc-800">
+                        <i class="fa-solid fa-fingerprint"></i>
+                    </div>
+                    <span class="text-xs font-bold text-red-500 tracking-wider uppercase">Criminology</span>
+                    <h3 class="text-xl font-bold text-white mt-2 mb-3">Crime Scene Management & Chain of Custody</h3>
+                    <p class="text-zinc-400 text-sm mb-6">Evidence recovery protocol, fingerprint analysis, and legal documentation standard operating procedures.</p>
+                </div>
+                <button onclick="openModal('authModal')" class="w-full py-3 rounded-lg border border-red-600/40 text-red-400 hover:bg-red-600 hover:text-white font-semibold transition-all">
+                    Enroll Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM (WEB3FORMS INTEGRATED) -->
+    <section id="contact" class="py-20 px-4 border-t border-zinc-800/80 bg-zinc-950/50">
+        <div class="max-w-3xl mx-auto glass-card p-8 sm:p-10 rounded-2xl">
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">Contact CRIMELENS Desk</h2>
+            <p class="text-zinc-400 text-sm text-center mb-8">Send us your inquiry or course registration questions directly.</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                <!-- Web3Forms Key -->
+                <input type="hidden" name="access_key" value="b29a2adb-90f2-4eb0-9904-95568d9371c6">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Your Name</label>
+                        <input type="text" name="name" required class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Email Address</label>
+                        <input type="email" name="email" required class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Message</label>
+                    <textarea name="message" rows="4" required class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-lg shadow-red-600/30 transition-all">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-zinc-900 py-12 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-xl font-black text-white">CRIME<span class="text-red-600">LENS</span></span>
+                <p class="text-zinc-500 text-xs mt-1">Meerut, India | Phone: +91 7027089665 | yashashvinichantt@gmail.com</p>
+            </div>
+            <div class="text-zinc-500 text-xs">
+                &copy; 2026 CRIMELENS Forensic Platform. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- AUTH MODAL -->
+    <div id="authModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-card w-full max-w-md p-8 rounded-2xl relative">
+            <button onclick="closeModal('authModal')" class="absolute top-4 right-4 text-zinc-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-2xl font-bold text-white mb-6">Account Sign In</h3>
+            
+            <!-- GOOGLE & SOCIAL OAUTH -->
+            <div class="space-y-3 mb-6">
+                <button onclick="alert('Google Auth Triggered')" class="w-full py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-lg text-sm text-zinc-200 font-medium flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-google text-red-500"></i> Continue with Google
+                </button>
+                <button onclick="alert('Facebook Auth Triggered')" class="w-full py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-lg text-sm text-zinc-200 font-medium flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-facebook text-blue-500"></i> Continue with Facebook
+                </button>
+            </div>
+
+            <div class="relative flex py-2 items-center mb-6">
+                <div class="flex-grow border-t border-zinc-800"></div>
+                <span class="flex-shrink mx-4 text-zinc-500 text-xs uppercase font-semibold">Or Email</span>
+                <div class="flex-grow border-t border-zinc-800"></div>
+            </div>
+
+            <form onsubmit="event.preventDefault(); alert('Signed in successfully!'); closeModal('authModal');" class="space-y-4">
+                <input type="email" placeholder="Email" required class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600">
+                <input type="password" placeholder="Password" required class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600">
+                <button type="submit" class="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-all">
+                    Sign In
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FORENSIC TOOLKIT MODAL -->
+    <div id="toolkitModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-card w-full max-w-xl p-8 rounded-2xl relative">
+            <button onclick="closeModal('toolkitModal')" class="absolute top-4 right-4 text-zinc-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-2xl font-bold text-white mb-2">SHA-256 Evidence Hasher</h3>
+            <p class="text-zinc-400 text-sm mb-6">Cryptographic SHA-256 hash generator for digital evidence verification.</p>
+            
+            <div class="space-y-4">
+                <textarea id="hashInput" rows="3" placeholder="Enter evidence text or string..." class="w-full bg-zinc-900 border border-zinc-700 rounded-lg p-3 text-white focus:outline-none focus:border-red-600"></textarea>
+                <button onclick="generateHash()" class="px-5 py-2.5 bg-red-600 text-white font-bold rounded-lg">Generate Hash</button>
+                
+                <div class="p-4 bg-zinc-900 rounded-lg border border-zinc-800 break-all font-mono text-xs text-red-400" id="hashResult">
+                    Hash result will appear here...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+        
+        async function generateHash() {
+            const input = document.getElementById('hashInput').value;
+            if(!input) return;
+            const msgBuffer = new TextEncoder().encode(input);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            document.getElementById('hashResult').innerText = "SHA-256: " + hashHex;
+        }
+    </script>
+</body>
+                  </html>
